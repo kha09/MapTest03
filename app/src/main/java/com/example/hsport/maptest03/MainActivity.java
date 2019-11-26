@@ -48,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               latTextView.setText(one);
-               lonTextView.setText(two);
+//               latTextView.setText(one);
+//               lonTextView.setText(two);
+                getLastLocation();
+
             }
         });
-        getLastLocation();
 
     }
 
@@ -70,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     one = location.getLatitude()+"";
                                     two = location.getLongitude()+"";
-//                                    latTextView.setText(location.getLatitude()+"");
-//                                    lonTextView.setText(location.getLongitude()+"");
+                                    latTextView.setText(location.getLatitude()+"");
+                                    lonTextView.setText(location.getLongitude()+"");
                                 }
                             }
                         }
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_ID) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getLastLocation();
+//                getLastLocation();
             }
         }
     }
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         if (checkPermissions()) {
-            getLastLocation();
+//            getLastLocation();
         }
 
     }
